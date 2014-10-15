@@ -27,6 +27,19 @@
 {
     [super viewDidLoad];
     
+    self.titles = [NSArray arrayWithObjects:
+                   @"How to stay up all night developing",
+                   @"Coffee, King of the Beans",
+                   @"Night Terrors, Real and Imagined",
+                   @"The Legend of Subway Jones",
+                   @"How to be Nice to Everyone",
+                   @"Don't Force the Push",
+                   @"Do Push the Force",
+                   @"Agile Sneaker Tricks",
+                   @"Why I Don't Stop Moving",
+                   @"Empathy for Beginners",
+                   nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -46,26 +59,25 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.titles count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = self.titles[indexPath.row];
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
