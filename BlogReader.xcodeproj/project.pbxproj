@@ -20,6 +20,7 @@
 		275010CF19EDEFE5001601DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 275010CD19EDEFE5001601DE /* InfoPlist.strings */; };
 		275010D119EDEFE5001601DE /* BlogReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 275010D019EDEFE5001601DE /* BlogReaderTests.m */; };
 		275010DB19EDF0C0001601DE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275010DA19EDF0C0001601DE /* MainStoryboard.storyboard */; };
+		275010DE19EDF163001601DE /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 275010DD19EDF163001601DE /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		275010CE19EDEFE5001601DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		275010D019EDEFE5001601DE /* BlogReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlogReaderTests.m; sourceTree = "<group>"; };
 		275010DA19EDF0C0001601DE /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		275010DC19EDF163001601DE /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		275010DD19EDF163001601DE /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 		275010B119EDEFE5001601DE /* BlogReader */ = {
 			isa = PBXGroup;
 			children = (
+				275010DC19EDF163001601DE /* TableViewController.h */,
+				275010DD19EDF163001601DE /* TableViewController.m */,
 				275010BA19EDEFE5001601DE /* AppDelegate.h */,
 				275010BB19EDEFE5001601DE /* AppDelegate.m */,
 				275010BD19EDEFE5001601DE /* Images.xcassets */,
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				275010BC19EDEFE5001601DE /* AppDelegate.m in Sources */,
+				275010DE19EDF163001601DE /* TableViewController.m in Sources */,
 				275010B819EDEFE5001601DE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
         <!--Table View Controller-->
         <scene sceneID="qiY-D8-IP8">
             <objects>
-                <tableViewController id="5JX-XV-WpE" sceneMemberID="viewController">
+                <tableViewController id="5JX-XV-WpE" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sn7-A2-U11">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
