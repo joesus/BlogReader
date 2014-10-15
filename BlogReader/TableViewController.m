@@ -27,24 +27,24 @@
 {
     [super viewDidLoad];
     
-    self.titles = [NSArray arrayWithObjects:
-                   @"How to stay up all night developing",
-                   @"Coffee, King of the Beans",
-                   @"Night Terrors, Real and Imagined",
-                   @"The Legend of Subway Jones",
-                   @"How to be Nice to Everyone",
-                   @"Don't Force the Push",
-                   @"Do Push the Force",
-                   @"Agile Sneaker Tricks",
-                   @"Why I Don't Stop Moving",
-                   @"Empathy for Beginners",
-                   nil];
+//    self.blogPosts = [NSArray arrayWithObjects:
+//                   @"How to stay up all night developing",
+//                   @"Coffee, King of the Beans",
+//                   @"Night Terrors, Real and Imagined",
+//                   @"The Legend of Subway Jones",
+//                   @"How to be Nice to Everyone",
+//                   @"Don't Force the Push",
+//                   @"Do Push the Force",
+//                   @"Agile Sneaker Tricks",
+//                   @"Why I Don't Stop Moving",
+//                   @"Empathy for Beginners",
+//                   nil];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSDictionary *blogPost1 = [NSDictionary dictionaryWithObjectsAndKeys:@"Keys and Values", @"title", @"Joe Susnick", @"author", nil];
+    NSDictionary *blogPost2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Getting started with IOS stuff", @"title", @"Joe Susnick", @"author", nil];
+    NSDictionary *blogPost3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Agile Sneaker Tricks", @"title", @"Joe Susnick", @"author", nil];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.blogPosts = [NSArray arrayWithObjects:blogPost1, blogPost2, blogPost3, nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +66,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.titles count];
+    return [self.blogPosts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,8 +74,10 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = self.titles[indexPath.row];
+    NSDictionary *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
     
+    cell.textLabel.text = blogPost[@"title"];
+    cell.detailTextLabel.text = blogPost[@"author"];
     return cell;
 }
 
