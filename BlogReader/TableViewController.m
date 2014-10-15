@@ -27,45 +27,33 @@
 {
     [super viewDidLoad];
     
-//    self.blogPosts = [NSArray arrayWithObjects:
-//                   @"How to stay up all night developing",
-//                   @"Coffee, King of the Beans",
-//                   @"Night Terrors, Real and Imagined",
-//                   @"The Legend of Subway Jones",
-//                   @"How to be Nice to Everyone",
-//                   @"Don't Force the Push",
-//                   @"Do Push the Force",
-//                   @"Agile Sneaker Tricks",
-//                   @"Why I Don't Stop Moving",
-//                   @"Empathy for Beginners",
-//                   nil];
+    NSURL *blogURL = [NSURL URLWithString:@"http://blog.teamtreehouse.com/api/get_recent_summary/"];
     
-    NSDictionary *blogPost1 = [NSDictionary dictionaryWithObjectsAndKeys:@"Keys and Values", @"title", @"Joe Susnick", @"author", nil];
-    NSDictionary *blogPost2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Getting started with IOS stuff", @"title", @"Joe Susnick", @"author", nil];
-    NSDictionary *blogPost3 = [NSDictionary dictionaryWithObjectsAndKeys:@"Agile Sneaker Tricks", @"title", @"Joe Susnick", @"author", nil];
+    NSData *jsonData = [NSData dataWithContentsOfURL:blogURL];
+   
+    NSLog(@"%@", jsonData);
     
-    self.blogPosts = [NSArray arrayWithObjects:blogPost1, blogPost2, blogPost3, nil];
+    NSError *error = nil;
+    
+    NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+
+    self.blogPosts = [dataDictionary objectForKey:@"posts"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.blogPosts count];
 }
 
