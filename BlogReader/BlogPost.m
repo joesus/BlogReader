@@ -38,6 +38,19 @@
     return [NSURL URLWithString:self.thumbnail];
 }
 
+- (NSString *) formattedDate {
+    // creates a dateFormatter
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // sets the date format, tells it what to expect from our date string
+    [dateFormatter setDateFormat:@"yyyy-M-dd HH:mm:ss"];
+    // creates a date object from our property
+    NSDate *tempDate = [dateFormatter dateFromString:self.date];
+    // creates a new date format
+    [dateFormatter setDateFormat:@"EE MMM, dd"];
+    // returns our reformatted date object as a string
+    return [dateFormatter stringFromDate:tempDate];
+}
+
 
 // Synthesizes the implementation of the getter and setter methods on instance variables.
 //@synthesize someTitle = title;

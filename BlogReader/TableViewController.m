@@ -96,7 +96,7 @@
     }
     
     cell.textLabel.text = blogPost.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Author: %@ - %@", blogPost.author, blogPost.date];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Author: %@ - %@", blogPost.author, [blogPost formattedDate]];
     return cell;
 }
 

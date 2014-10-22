@@ -23,6 +23,7 @@
 + (id) blogPostWithTitle:(NSString *)title;
 
 - (NSURL *) thumbnailURL;
+- (NSString *) formattedDate;
 
 //// primitive values do not need strong/weak or *
 //@property (nonatomic) int views;
