@@ -54,6 +54,7 @@
         BlogPost *blogPost = [BlogPost blogPostWithTitle:[postDictionary objectForKey:@"title"]];
         blogPost.author = [postDictionary objectForKey:@"author"];
         blogPost.thumbnail = [postDictionary objectForKey:@"thumbnail"];
+        blogPost.date = [postDictionary objectForKey:@"date"];
         [self.blogPosts addObject:blogPost];
     }
 }
@@ -83,14 +84,19 @@
     // initializes a blogpost 
     BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
     
-    NSData *imageData = [NSData dataWithContentsOfURL:blogPost.thumbnailURL];
-    UIImage *image = [UIImage imageWithData:imageData];
+    // sets default thumbnail is thumbnail from data is not valid
+    if ( [blogPost.thumbnail isKindOfClass:[NSString class]]) {
+        NSData *imageData = [NSData dataWithContentsOfURL:blogPost.thumbnailURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        
+        cell.imageView.image = image;
+    } else {
+        //    // adding an image programatically
+        cell.imageView.image = [UIImage imageNamed:@"treehouse.png"];
+    }
     
-//    // adding an image programatically
-//    cell.imageView.image = [UIImage imageNamed:@"treehouse.png"];
-    cell.imageView.image = image;
     cell.textLabel.text = blogPost.title;
-    cell.detailTextLabel.text = blogPost.author;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Author: %@ - %@", blogPost.author, blogPost.date];
     return cell;
 }
 

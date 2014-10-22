@@ -33,6 +33,8 @@
 }
 
 - (NSURL *) thumbnailURL {
+    // debugging exercise
+    NSLog(@"%@", [self.thumbnail class]);
     return [NSURL URLWithString:self.thumbnail];
 }
 
