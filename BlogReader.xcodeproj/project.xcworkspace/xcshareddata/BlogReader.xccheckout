@@ -10,29 +10,29 @@
 	<string>BlogReader</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0CEBF956-4F9D-45EB-B14B-DB51F35CADEE</key>
+		<key>2749C69E1A91052C3DF91E368796E67A84AE49FF</key>
 		<string>ssh://github.com/joesus/BlogReader</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BlogReader.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0CEBF956-4F9D-45EB-B14B-DB51F35CADEE</key>
+		<key>2749C69E1A91052C3DF91E368796E67A84AE49FF</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/joesus/BlogReader</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0CEBF956-4F9D-45EB-B14B-DB51F35CADEE</string>
+	<string>2749C69E1A91052C3DF91E368796E67A84AE49FF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0CEBF956-4F9D-45EB-B14B-DB51F35CADEE</string>
+			<string>2749C69E1A91052C3DF91E368796E67A84AE49FF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BlogReader</string>
 		</dict>

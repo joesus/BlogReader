@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "BlogPost.h"
 
 @interface TableViewController ()
 
@@ -27,17 +28,34 @@
 {
     [super viewDidLoad];
     
+//    // Uses the designated initializer for BlogPost
+//    BlogPost *blogPost = [[BlogPost alloc] initWithTitle:@"New Post"];
+//    blogPost.author = @"Author";
+//    
+//    // Uses the convenience constructor for BlogPost
+//    BlogPost *anotherBlogPost = [BlogPost blogPostWithTitle:@"another title"];
+    
     NSURL *blogURL = [NSURL URLWithString:@"http://blog.teamtreehouse.com/api/get_recent_summary/"];
     
     NSData *jsonData = [NSData dataWithContentsOfURL:blogURL];
-   
-    NSLog(@"%@", jsonData);
     
     NSError *error = nil;
     
     NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-
-    self.blogPosts = [dataDictionary objectForKey:@"posts"];
+  
+    // creates a property with a mutable array to hold our BlogPost objects
+    self.blogPosts = [NSMutableArray array];
+    
+    // creates an array of dictionaries to hold the posts
+    NSArray *blogPostsArray = [dataDictionary objectForKey:@"posts"];
+    
+    // loops through the dictionaries and creates BlogPost objects to store in our mutable array
+    for (NSDictionary *postDictionary in blogPostsArray) {
+        BlogPost *blogPost = [BlogPost blogPostWithTitle:[postDictionary objectForKey:@"title"]];
+        blogPost.author = [postDictionary objectForKey:@"author"];
+        blogPost.thumbnail = [postDictionary objectForKey:@"thumbnail"];
+        [self.blogPosts addObject:blogPost];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,10 +80,17 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
+    // initializes a blogpost 
+    BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = blogPost[@"title"];
-    cell.detailTextLabel.text = blogPost[@"author"];
+    NSData *imageData = [NSData dataWithContentsOfURL:blogPost.thumbnailURL];
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+//    // adding an image programatically
+//    cell.imageView.image = [UIImage imageNamed:@"treehouse.png"];
+    cell.imageView.image = image;
+    cell.textLabel.text = blogPost.title;
+    cell.detailTextLabel.text = blogPost.author;
     return cell;
 }
 
