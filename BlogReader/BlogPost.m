@@ -46,7 +46,7 @@
     // creates a date object from our property
     NSDate *tempDate = [dateFormatter dateFromString:self.date];
     // creates a new date format
-    [dateFormatter setDateFormat:@"EE MMM, dd"];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     // returns our reformatted date object as a string
     return [dateFormatter stringFromDate:tempDate];
 }
