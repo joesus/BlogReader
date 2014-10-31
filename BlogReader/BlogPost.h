@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *author;
 @property (strong, nonatomic) NSString *thumbnail;
 @property (strong, nonatomic) NSString *date;
+@property (strong, nonatomic) NSURL *url;
 
 // id is general purpose data type that can create an instance of any class
 // designated initializer

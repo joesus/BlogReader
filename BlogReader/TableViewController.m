@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "BlogPost.h"
+#import "WebViewController.h"
 
 @interface TableViewController ()
 
@@ -55,6 +56,7 @@
         blogPost.author = [postDictionary objectForKey:@"author"];
         blogPost.thumbnail = [postDictionary objectForKey:@"thumbnail"];
         blogPost.date = [postDictionary objectForKey:@"date"];
+        blogPost.url = [NSURL URLWithString:[postDictionary objectForKey:@"url"]];
         [self.blogPosts addObject:blogPost];
     }
 }
@@ -100,53 +102,23 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+// This method is part of UIViewController, one of the storyboard methods.
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    // Grabs the indexPath of the row of the table view that was the sender
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    // Reinitializes the blogpost with that index
+    BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
+    
+    if ( [segue.identifier isEqualToString:@"showBlogPost"]) {
+        // Sets the blogPostURL property of the destination view controller
+        [segue.destinationViewController setBlogPostURL:blogPost.url];
+        
+        // alternately can use casting (changing the destination view controller from type id to type WebViewController
+        // Then setting the property of that controller directly.
+//        WebViewController *wbc = (WebViewController *)segue.destinationViewController;
+//        wbc.blogPostURL = blogPost.url;
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
