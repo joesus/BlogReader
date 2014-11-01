@@ -3,6 +3,7 @@ Treehouse Tutorial
 ==================
 
 Concepts learned and practiced:
+
 1. Storyboarding
 2. Designated initializers
 3. Convenience constructors
